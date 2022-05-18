@@ -1,7 +1,15 @@
 import React from "react";
-
+import Navbar from "../Components/Navbar";
+import Popular from "../Components/Popular";
+import Veggie from "../Components/Veggie";
 function Home() {
-  return <div>Home</div>;
+  return (
+    <div>
+      <Navbar />
+      <Popular />
+      <Veggie />
+    </div>
+  );
 }
 
 export default Home;

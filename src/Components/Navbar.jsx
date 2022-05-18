@@ -1,36 +1,16 @@
-import React, { useState } from "react";
-import { GoSearch } from "react-icons/go";
+import React from "react";
 import Categories from "./Categories";
+import Search from "./Search";
+import logo from "../Assets/logo3.png";
+import { Link } from "react-router-dom";
 function Navbar() {
-  const [searchText, setSearchText] = useState("");
-  const updateSearch = (e) => {
-    setSearchText(e.target.value);
-    console.log(searchText);
-  };
   return (
-    <div className="flex flex-col justify-center items-start w-full py-4">
+    <div className="flex relative justify-center items-start w-full py-4">
+      <Link to="/" exact>
+        <img className="w-[48px] h-[48px] absolute left-0" src={logo} alt="" />
+      </Link>
       <div className=" flex-col flex justify-center items-center self-center min-w-[50%]">
-        <div className="bg-black rounded-lg w-full flex items-center justify-between font-light text-sm text-white ">
-          <button
-            type="submit"
-            className="p-2"
-            onClick={() => {
-              console.log("hello");
-            }}
-          >
-            <GoSearch />
-          </button>
-          <input
-            onChange={(e) => {
-              updateSearch(e);
-            }}
-            placeholder="Search for your recipe"
-            type="text"
-            name="Recipe"
-            id=""
-            className=" flex-1 border-none bg-transparent text-white outline-none "
-          />
-        </div>
+        <Search />
         <Categories />
       </div>
     </div>

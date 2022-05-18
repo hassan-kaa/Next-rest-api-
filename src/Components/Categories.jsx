@@ -1,66 +1,43 @@
 import React from "react";
 import { FaPizzaSlice, FaHamburger } from "react-icons/fa";
 import { GiNoodles, GiChopsticks } from "react-icons/gi";
-import { motion } from "framer-motion";
+import styled from "styled-components";
 import { NavLink } from "react-router-dom";
 function Categories() {
   return (
     <div className=" w-[80%] flex mt-4 justify-around items-center ">
-      <NavLink to={"/Categories/italian"}>
-        <motion.button
-          whileHover={{
-            scale: 1.1,
-            transition: { duration: 0.3 },
-          }}
-          whileTap={{ scale: 0.9 }}
-          className="rounded-full flex-col bg-black  h-[4rem] w-[4rem] flex justify-center items-center text-white"
-        >
-          <FaPizzaSlice />
-          <p className="text-[0.5rem]">Italian</p>
-        </motion.button>
-      </NavLink>
-      <NavLink to={"/Categories/american"}>
-        <motion.button
-          whileHover={{
-            scale: 1.1,
-            transition: { duration: 0.3 },
-          }}
-          whileTap={{ scale: 0.9 }}
-          className="rounded-full flex-col  bg-black  h-[4rem] w-[4rem] flex justify-center items-center text-white"
-        >
-          <FaHamburger />
-          <p className="text-[0.5rem]">American</p>
-        </motion.button>
-      </NavLink>
-      <NavLink to={"/Categories/thai"}>
-        <motion.button
-          onClick={(e) => {}}
-          whileHover={{
-            scale: 1.1,
-            transition: { duration: 0.3 },
-          }}
-          whileTap={{ scale: 0.9 }}
-          className="rounded-full flex-col  bg-black  h-[4rem] w-[4rem] flex justify-center items-center text-white"
-        >
-          <GiNoodles />
-          <p className="text-[0.5rem]">Thai</p>
-        </motion.button>
-      </NavLink>
-      <NavLink to={"/Categories/japanese"}>
-        <motion.button
-          whileHover={{
-            scale: 1.1,
-            transition: { duration: 0.3 },
-          }}
-          whileTap={{ scale: 0.9 }}
-          className="rounded-full flex-col  bg-black  h-[4rem] w-[4rem] flex justify-center items-center text-white"
-        >
-          <GiChopsticks />
-          <p className="text-[0.5rem]">Japanese</p>
-        </motion.button>
-      </NavLink>
+      <Slink to="/cuisine/italian">
+        <FaPizzaSlice />
+        <p className="text-[0.5rem]">Italian</p>
+      </Slink>
+      <Slink to="/cuisine/american">
+        <FaHamburger />
+        <p className="text-[0.5rem]">American</p>
+      </Slink>
+      <Slink to="/cuisine/thai">
+        <GiNoodles />
+        <p className="text-[0.5rem]">Thai</p>
+      </Slink>
+      <Slink to="/cuisine/japanese">
+        <GiChopsticks />
+        <p className="text-[0.5rem]">Japanese</p>
+      </Slink>
     </div>
   );
 }
 
 export default Categories;
+const Slink = styled(NavLink)`
+  border-radius: 100%;
+  display: flex;
+  flex-direction: column;
+  background: black;
+  height: 4rem;
+  width: 4rem;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  &.active {
+    background: linear-gradient(to right, #f27121, #e94057);
+  }
+`;
